@@ -1,0 +1,44 @@
+[project]
+name = "workprint"
+version = "0.1.0"
+description = "Distill real behavior traces into executable AI skills"
+readme = "README.md"
+license = { text = "MIT" }
+authors = []
+requires-python = ">=3.10"
+keywords = ["ai", "skills", "behavior", "productivity", "claude"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+ai = [
+    "anthropic>=0.40",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+    "ruff",
+]
+
+[project.scripts]
+workprint = "workprint.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
